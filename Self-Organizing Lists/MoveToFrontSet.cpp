@@ -32,10 +32,22 @@ bool MoveToFrontSet::contains(const string& str) {
     Cell* previous = nullptr;
     // Iterate through our Linked List and find `str`
     // Use prev and current approach
-    while (current != nullptr && current->value != str) {
+
+    // Approach 1: Using a break condition
+    while (current != nullptr) {
+        if (current->value == str) {
+            break;
+        }
         previous = current;
         current = current->next;
     }
+
+    // Approach 2: Combining the logic
+    // while (current != nullptr && current->value != str) {
+    //     previous = current;
+    //     current = current->next;
+    // }
+
     // We need to do some checks on current
     if (current == nullptr) {
         // We iterated through the entire Linked List
